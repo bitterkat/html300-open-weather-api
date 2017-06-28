@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+main {
+  margin-left: 2rem;
+}
+
+button {
+  background: blue;
+  color: white;
+  padding: 1rem;
+}
+
+#conditions {
+  background-color: purple;
+  padding: 6rem;
+  margin-top: 1rem;
+  /*margin: 2rem;*/
+  width: 60%;
+}
+
+#temp {
+  display: block;
+}
+
+#icon img {
+  display: block;
+  margin: auto;
+}
