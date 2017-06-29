@@ -43,7 +43,7 @@ function getConditions (queryString) {
     // debug = response
     imperialTemp = Math.round(response.main.temp)
     icon = response.weather[0].icon
-    conditionsDiv.innerHTML = `Conditions: ${response.weather[0].main}, ${response.weather[0].description}`
+    conditionsDiv.innerHTML = `Conditions: ${response.weather[0].main}`
     conditionsDiv.appendChild(tempDiv)
     conditionsDiv.appendChild(iconDiv)
     tempDiv.innerHTML = `<h2>${cityName} : ${imperialTemp} degrees fahrenheit</h2>`
