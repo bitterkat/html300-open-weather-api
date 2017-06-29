@@ -1,4 +1,5 @@
-const apiURL = "http://api.openweathermap.org/data/2.5/weather"
+// const apiURL = "http://api.openweathermap.org/data/2.5/weather"
+const apiURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather"
 const appid = 'APPID=346d9d7fa12c58ce3cf80709862132cc'
 const units = 'units=imperial'
 const londonCoords = {lat: 51.5074, lon:0.128}
