@@ -1,20 +1,39 @@
-// const apiURL = "http://api.openweathermap.org/data/2.5/weather"
-const apiURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather"
+const apiURL = "http://api.openweathermap.org/data/2.5/weather"
+// const apiURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather"
 const appid = 'APPID=346d9d7fa12c58ce3cf80709862132cc'
 const units = 'units=imperial'
-const londonCoords = {lat: 51.5074, lon:0.128}
-const seattleCoords = {lat: 47.6762, lon:-122.3182}
+const londonCoords = {lat: 51.5074, lon: 0.128}
+const seattleCoords = {lat: 47.6762, lon: -122.3182}
 let values = ''
 let cityName = ''
+let addLoc = ''
 
 document.getElementById('seattle').onclick = function () {
   values = seattleCoords
   cityName = "Seattle"
+  console.log(values)
 }
 
 document.getElementById('london').onclick = function () {
   values = londonCoords
   cityName = "London"
+  console.log(values)
+}
+
+document.getElementById('userLoc').onclick = function () {
+  navigator.geolocation.getCurrentPosition(success, error)
+
+  function success(position){
+    addLoc = {lat: position.coords.latitude, lon: position.coords.longitude}
+    values = addLoc
+    cityName = "Your Location"
+    console.log(values)
+  }
+
+  function error (position){
+    console.log("I didn't work!")
+  }
+return values
 }
 
 function handleClick () {
@@ -43,7 +62,7 @@ function getConditions (queryString) {
     // debug = response
     imperialTemp = Math.round(response.main.temp)
     icon = response.weather[0].icon
-    conditionsDiv.innerHTML = `Conditions: ${response.weather[0].main}`
+    conditionsDiv.innerHTML = `Conditions for ${response.name}: ${response.weather[0].main}`
     conditionsDiv.appendChild(tempDiv)
     conditionsDiv.appendChild(iconDiv)
     tempDiv.innerHTML = `<h2>${cityName} : ${imperialTemp} degrees fahrenheit</h2>`
@@ -76,6 +95,7 @@ function queryBuilder(queryObj){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+  userLoc.addEventListener("click", handleClick)
   seattle.addEventListener("click", handleClick)
   london.addEventListener("click", handleClick)
 })
