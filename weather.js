@@ -6,38 +6,40 @@ const londonCoords = {lat: 51.5074, lon: 0.128}
 const seattleCoords = {lat: 47.6762, lon: -122.3182}
 let values = ''
 let cityName = ''
-let addLoc = ''
 
 document.getElementById('seattle').onclick = function () {
-  values = seattleCoords
-  cityName = "Seattle"
-  console.log(values)
+values = seattleCoords
+cityName = "Seattle"
+// console.log(values)
+handleClick()
 }
 
 document.getElementById('london').onclick = function () {
-  values = londonCoords
-  cityName = "London"
-  console.log(values)
+values = londonCoords
+cityName = "London"
+// console.log(values)
+handleClick()
 }
 
 document.getElementById('userLoc').onclick = function () {
-  navigator.geolocation.getCurrentPosition(success, error)
+navigator.geolocation.getCurrentPosition(success, error)
 
   function success(position){
-    addLoc = {lat: position.coords.latitude, lon: position.coords.longitude}
+    let addLoc = {lat: position.coords.latitude, lon: position.coords.longitude}
     values = addLoc
-    cityName = "Your Location"
-    console.log(values)
+    cityName = "your current location"
+    console.log("It worked!")
+    // console.log(values)
+    handleClick()
   }
 
-  function error (position){
-    console.log("I didn't work!")
-  }
-return values
+    function error (position){
+      console.log("It didn't work!")
+    }
 }
 
 function handleClick () {
-  event.preventDefault()
+  // event.preventDefault()
   // serialize values into a query string
   let queryString = queryBuilder(values)
   // call getConditions with the query string
@@ -46,7 +48,6 @@ function handleClick () {
 
 function getConditions (queryString) {
   let request = new XMLHttpRequest()
-
   // starts to talk to API - 3 params
   // request method, url, (optional) async flag (default true)
   request.open("GET", apiURL + queryString, true)
@@ -62,11 +63,11 @@ function getConditions (queryString) {
     // debug = response
     imperialTemp = Math.round(response.main.temp)
     icon = response.weather[0].icon
-    conditionsDiv.innerHTML = `Conditions for ${response.name}: ${response.weather[0].main}`
-    conditionsDiv.appendChild(tempDiv)
+    conditionsDiv.innerHTML = `Conditions for ${cityName}: ${response.weather[0].main}`
     conditionsDiv.appendChild(iconDiv)
-    tempDiv.innerHTML = `<h2>${cityName} : ${imperialTemp} degrees fahrenheit</h2>`
+    conditionsDiv.appendChild(tempDiv)
     iconDiv.innerHTML = `<img src='http://openweathermap.org/img/w/${icon}.png'>`
+    tempDiv.innerHTML = `<h2>${imperialTemp}<span>&#8457;</span></h2>`
   }
 
   // fires if something goes wrong
@@ -91,11 +92,6 @@ function queryBuilder(queryObj){
   // concatenate the pairs together, with & between
   let longString = holder.join("&")
   // prepend a ? to concatenated string, return
+  // console.log(`?${longString}&${units}&${appid}`)
   return `?${longString}&${units}&${appid}`
 }
-
-document.addEventListener("DOMContentLoaded", function () {
-  userLoc.addEventListener("click", handleClick)
-  seattle.addEventListener("click", handleClick)
-  london.addEventListener("click", handleClick)
-})
