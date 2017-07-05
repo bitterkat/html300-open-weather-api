@@ -10,20 +10,20 @@ let cityName = ''
 document.getElementById('seattle').onclick = function () {
 values = seattleCoords
 cityName = "Seattle"
-// console.log(values)
+// call click handler
 handleClick()
 }
 
 document.getElementById('london').onclick = function () {
 values = londonCoords
 cityName = "London"
-// console.log(values)
+// call click handler
 handleClick()
 }
 
 document.getElementById('userLoc').onclick = function () {
 navigator.geolocation.getCurrentPosition(success, error)
-
+  // if success assign the values and call click handler
   function success(position){
     let addLoc = {lat: position.coords.latitude, lon: position.coords.longitude}
     values = addLoc
@@ -39,7 +39,6 @@ navigator.geolocation.getCurrentPosition(success, error)
 }
 
 function handleClick () {
-  // event.preventDefault()
   // serialize values into a query string
   let queryString = queryBuilder(values)
   // call getConditions with the query string
