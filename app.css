@@ -1,0 +1,66 @@
+@import url(normalize.css);
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box; }
+
+body {
+  font-family: 'Play', sans-serif;
+  background: #b3dced;
+  background: -webkit-gradient(left top, right top, color-stop(0%, #b3dced), color-stop(50%, #29b8e5), color-stop(100%, #bce0ee));
+  background: -webkit-gradient(linear, left top, right top, from(#b3dced), color-stop(50%, #29b8e5), to(#bce0ee));
+  background: linear-gradient(to right, #b3dced 0%, #29b8e5 50%, #bce0ee 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 ); }
+
+#weatherbox, .buttonbox {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin: 20px auto; }
+
+.button {
+  border: 0.25rem solid currentColor;
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin: 0 0.25rem;
+  padding: 0;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  height: 4rem;
+  width: 15rem; }
+  .button:hover, .button:focus {
+    font-size: 2rem;
+    outline: none; }
+
+.c {
+  background-color: #b3dced;
+  color: #111; }
+  .c:hover, .c:focus {
+    background-color: #FF9200; }
+  .c:active {
+    background-color: #111; }
+
+.d {
+  background-color: #111;
+  color: #b3dced; }
+  .d:hover, .d:focus {
+    background-color: #FF9200; }
+  .d:active {
+    background-color: #b3dced; }
+
+.e {
+  background-color: #FF9200;
+  color: #111; }
+  .e:hover, .e:focus {
+    background-color: #b3dced; }
+  .e:active {
+    background-color: #111; }
+
+#temp {
+  font-size: 3rem; }
+
+#icon img {
+  width: 8rem; }
+
+#conditions {
+  font-size: 1.5rem; }
+
+/*# sourceMappingURL=app.css.map */

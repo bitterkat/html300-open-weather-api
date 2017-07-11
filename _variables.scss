@@ -1,0 +1,21 @@
+$big: 1.5rem;
+$biggy: 2rem;
+$bigger: 3rem;
+
+$fat-image: 8rem;
+$black: #111;
+// $blue: #4F4FD9;
+$blue: rgba(179,220,237,1);
+$orange: #FF9200;
+
+$button-height: 4rem;
+$button-width: 15rem;
+$button-map: (
+// c: (#3e181b, #661920, #db1d2d),
+// d: (#422018, #6e2819, #f0421c),
+// e: (#45391b, #735b20, #fec02d)
+// c: (#ffbf00, #ff9500, #ff7f00),
+c: ($blue, $orange, $black),
+d: ($black, $orange, $blue),
+e: ($orange, $blue, $black)
+)

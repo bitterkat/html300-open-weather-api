@@ -1,0 +1,81 @@
+@import "normalize.css";
+@import "variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Play', sans-serif;
+  background: rgba(179,220,237,1);
+  background: -moz-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(179,220,237,1)), color-stop(50%, rgba(41,184,229,1)), color-stop(100%, rgba(188,224,238,1)));
+  background: -webkit-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+  background: -o-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+  background: -ms-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+  background: linear-gradient(to right, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 50%, rgba(188,224,238,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );
+}
+
+// .buttonbox {
+//   text-align: center;
+//   padding-top: 1.5rem;
+//   margin: 20px auto;
+// }
+
+#weatherbox, .buttonbox {
+  text-align: center;
+  padding-top: 1.5rem;
+  margin: 20px auto;
+}
+
+.button {
+  border: 0.25rem solid currentColor;
+  cursor: pointer;
+  font-size: $big;
+  margin: 0 0.25rem;
+  padding: 0;
+  transition: all 0.2s ease;
+
+  height: $button-height;
+  width: $button-width;
+
+  &:hover,
+  &:focus {
+    font-size: $biggy;
+    outline: none;
+  }
+}
+
+@each $button, $colors in $button-map {
+  .#{$button} {
+    // colors are in regular, hover, active order
+    $regular: nth($colors, 1);
+    $hover: nth($colors, 2);
+    $active: nth($colors, 3);
+
+    background-color: $regular;
+    color: $active;
+
+    &:hover,
+    &:focus {
+      background-color: $hover;
+    }
+
+    &:active {
+      background-color: $active;
+    }
+  }
+}
+
+#temp {
+  font-size: $bigger;
+}
+
+#icon img {
+  width: $fat-image;
+}
+
+#conditions {
+  font-size: $big;
+}
