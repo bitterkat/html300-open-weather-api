@@ -17,12 +17,6 @@ body {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );
 }
 
-// .buttonbox {
-//   text-align: center;
-//   padding-top: 1.5rem;
-//   margin: 20px auto;
-// }
-
 #weatherbox, .buttonbox {
   text-align: center;
   padding-top: 1.5rem;
@@ -42,8 +36,7 @@ body {
 
   &:hover,
   &:focus {
-    font-size: $biggy;
-    outline: none;
+    font-size: $bigger;
   }
 }
 
@@ -53,6 +46,7 @@ body {
     $regular: nth($colors, 1);
     $hover: nth($colors, 2);
     $active: nth($colors, 3);
+    $active-bg: nth($colors, 4);
 
     background-color: $regular;
     color: $active;
@@ -63,13 +57,13 @@ body {
     }
 
     &:active {
-      background-color: $active;
+      background-color: $active-bg;
     }
   }
 }
 
 #temp {
-  font-size: $bigger;
+  font-size: $biggest;
 }
 
 #icon img {
@@ -77,5 +71,5 @@ body {
 }
 
 #conditions {
-  font-size: $big;
+  font-size: $biggy;
 }
