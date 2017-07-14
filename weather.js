@@ -25,7 +25,7 @@ navigator.geolocation.getCurrentPosition(success, error)
   function success(position){
     let addLoc = {lat: position.coords.latitude, lon: position.coords.longitude}
     values = addLoc
-    console.log("It worked!")
+    // call click handler
     handleClick()
   }
 
@@ -51,7 +51,6 @@ function getConditions (queryString) {
   // long term - I want to update the DOM
   request.onload = function () {
     let weatherboxDiv = document.getElementById("weatherbox")
-    // weatherboxDiv.innerHTML = ''
     let conditionsDiv = document.getElementById("conditions")
     let tempDiv = document.getElementById("temp")
     let iconDiv = document.getElementById("icon")
