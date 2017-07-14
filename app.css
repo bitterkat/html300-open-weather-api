@@ -24,43 +24,42 @@ body {
   padding: 0;
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
-  height: 4rem;
-  width: 15rem; }
+  height: 5rem;
+  width: 25rem; }
   .button:hover, .button:focus {
-    font-size: 2rem;
-    outline: none; }
+    font-size: 3rem; }
+
+.a {
+  background-color: #ccff66;
+  color: #00cc00; }
+  .a:hover, .a:focus {
+    background-color: #ff33ff; }
+  .a:active {
+    background-color: #66ccff; }
+
+.b {
+  background-color: #6600cc;
+  color: #ccff66; }
+  .b:hover, .b:focus {
+    background-color: #ff9933; }
+  .b:active {
+    background-color: #00cc00; }
 
 .c {
-  background-color: #b3dced;
+  background-color: #ff33ff;
   color: #111; }
   .c:hover, .c:focus {
-    background-color: #FF9200; }
+    background-color: #66ccff; }
   .c:active {
-    background-color: #111; }
-
-.d {
-  background-color: #111;
-  color: #b3dced; }
-  .d:hover, .d:focus {
-    background-color: #FF9200; }
-  .d:active {
-    background-color: #b3dced; }
-
-.e {
-  background-color: #FF9200;
-  color: #111; }
-  .e:hover, .e:focus {
-    background-color: #b3dced; }
-  .e:active {
-    background-color: #111; }
+    background-color: #ff9933; }
 
 #temp {
-  font-size: 3rem; }
+  font-size: 3.5rem; }
 
 #icon img {
   width: 8rem; }
 
 #conditions {
-  font-size: 1.5rem; }
+  font-size: 2rem; }
 
 /*# sourceMappingURL=app.css.map */
